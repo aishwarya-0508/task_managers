@@ -1,24 +1,27 @@
 import { useState } from "react";
 
-function TaskForm({ addTask }) {
+function TaskForm({ addResource }) {
 
-  const [task, setTask] = useState("");
+  const [resource, setResource] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
-    if (task.trim() === "") {
-      setError("Task cannot be empty");
+    if (resource.trim() === "") {
+
+      setError("Resource name cannot be empty");
+
       return;
     }
 
-    addTask({
+    addResource({
       id: Date.now(),
-      text: task
+      text: resource
     });
 
-    setTask("");
+    setResource("");
     setError("");
   };
 
@@ -28,16 +31,19 @@ function TaskForm({ addTask }) {
 
       <input
         type="text"
-        placeholder="Enter Task"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
+        placeholder="Enter Resource Name"
+        value={resource}
+        onChange={(e) => setResource(e.target.value)}
       />
 
-      <button type="submit">Add</button>
+      <button type="submit">
+        Add Resource
+      </button>
 
       <p className="error">{error}</p>
 
     </form>
+
   );
 }
 
