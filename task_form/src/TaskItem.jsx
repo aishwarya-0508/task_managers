@@ -1,12 +1,12 @@
-function TaskItem({ task, deleteTask }) {
+function TaskItem({ resource, deleteResource }) {
 
   return (
 
     <div className="task-item">
 
-      <span>{task.text}</span>
+      <span>{resource.text}</span>
 
-      <button onClick={() => deleteTask(task.id)}>
+      <button onClick={() => deleteResource(resource.id)}>
         Delete
       </button>
 
