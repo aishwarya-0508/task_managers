@@ -1,17 +1,17 @@
 import TaskItem from "./TaskItem";
 
-function TaskList({ tasks, deleteTask }) {
+function TaskList({ resources, deleteResource }) {
 
   return (
 
     <div>
 
-      {tasks.map((task) => (
+      {resources.map((resource) => (
 
         <TaskItem
-          key={task.id}
-          task={task}
-          deleteTask={deleteTask}
+          key={resource.id}
+          resource={resource}
+          deleteResource={deleteResource}
         />
 
       ))}
