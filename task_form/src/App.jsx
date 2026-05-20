@@ -5,42 +5,49 @@ import TaskList from "./TaskList";
 
 function App() {
 
-  const [tasks, setTasks] = useState([]);
+  const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    console.log("Tasks Updated");
-  }, [tasks]);
+    console.log("Resources Updated");
+  }, [resources]);
 
-  const addTask = (task) => {
-    setTasks([...tasks, task]);
+  const addResource = (resource) => {
+    setResources([...resources, resource]);
   };
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+  const deleteResource = (id) => {
+    setResources(resources.filter((resource) => resource.id !== id));
   };
 
   return (
-  <div className="container">
 
-  <h1>Task Manager</h1>
+    <div className="container">
 
-  <p className="subtitle">
-    Organize your daily tasks efficiently.
-  </p>
+      <h1>ShareSphere</h1>
 
-  <div className="info-box">
-<center>
-    <p>✔Add new tasks easily</p>
+      <p className="subtitle">
+        Smart Community Resource Sharing Platform
+      </p>
 
-    <p>✔Delete completed tasks</p>
-</center>
-  </div>
+      <div className="info-box">
 
-  <TaskForm addTask={addTask} />
+        <p>✔ Share books and study materials</p>
 
-  <TaskList tasks={tasks} deleteTask={deleteTask} />
+        <p>✔ Add useful community resources</p>
 
-</div>
+        <p>✔ Manage resources dynamically</p>
+
+      </div>
+
+      <TaskForm addResource={addResource} />
+
+      <TaskList
+        resources={resources}
+        deleteResource={deleteResource}
+      />
+
+    </div>
+
   );
 }
 
